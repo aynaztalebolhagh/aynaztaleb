@@ -1,0 +1,44 @@
+class Mokhatab:
+    def init(self, esm, shomare):
+        self.esm = esm
+        if not shomare.isdigit():
+            raise ValueError("Format shomare eshtebah")
+        self.shomare = shomare
+
+mokhatabha = []
+
+while True:
+    print("\nMenu:")
+    print("1. Ezafe Mokhatab")
+    print("2. Namayesh hame")
+    print("3. Zakhire va Khorooj")
+
+    try:
+        entekhab = int(input("Adad gozine ra vared konid: "))
+    except ValueError:
+        print("Lotfan adad vared konid")
+        continue
+
+    if entekhab == 1:
+        esm = input("Esm Mokhatab ra vared konid: ")
+        while True:
+            shomare = input("Shomare Mokhatab ra vared konid: ")
+            try:
+                mokhatab_jadid = Mokhatab(esm, shomare)
+                mokhatabha.append(mokhatab_jadid)
+                print("Mokhatab ezafe shod!")
+                break
+            except ValueError:
+                print("Format shomare eshtebah ast, dobare talash konid")
+
+    elif entekhab == 2:
+        if not mokhatabha:
+            print("Hich mokhatabi vojod nadarad")
+        for i, m in enumerate(mokhatabha, 1):
+            print(f"{i}. ESM: {m.esm}, Shomare: {m.shomare}")
+
+    elif entekhab == 3:
+        print("Zakhire mokhatabha va khorooj...")
+        break
+    else:
+        print("Gozine eshtebah, dobare talash konid")

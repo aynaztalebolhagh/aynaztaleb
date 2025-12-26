@@ -1,0 +1,36 @@
+class Vehicle:
+    def init(self, brand, year):
+        self.brand = brand
+        self.year = year
+
+    def show_info(self):
+        print("brand:", self.brand)
+        print("year:", self.year)
+
+class Car(Vehicle):
+    def init(self, brand, year, doors):
+        super().__init__(brand, year)
+        self.doors = doors
+
+    def show_info(self):
+        super().show_info()
+        print("doors:", self.doors)
+
+class Motorcycle(Vehicle):
+    def init(self, brand, year, sidecar):
+        super().__init__(brand, year)
+        self.sidecar = sidecar
+
+    def show_info(self):
+        super().show_info()
+        print("sidecar:", self.sidecar)
+
+v1 = Vehicle("Toyota", 2020)
+c1 = Car("Honda", 2022, 4)
+m1 = Motorcycle("Yamaha", 2021, "No")
+
+v1.show_info()
+print("------")
+c1.show_info()
+print("------")
+m1.show_info()

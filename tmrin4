@@ -1,0 +1,11 @@
+def gpa_student(student):
+    return sum(student["grades"]) / len(student["grades"])
+
+students_list = [
+    {"student_id": 1, "name": "Ali", "grades": [18, 19, 20]},
+    {"student_id": 2, "name": "Zahra", "grades": [15, 14, 16.5]}
+]
+
+for student in students_list:
+    moadel = gpa_student(student)
+    print(student["name"], "moadel shoma:", moadel)

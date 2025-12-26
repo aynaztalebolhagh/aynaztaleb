@@ -1,0 +1,39 @@
+from abc import ABC, abstractmethod
+
+class Shekl(ABC):
+    @abstractmethod
+    def masahat_calc(self):
+        pass
+
+    @abstractmethod
+    def mohit_calc(self):
+        pass
+
+class Mostatil(Shekl):
+    def init(self, arz, ertefa):
+        self.arz = arz
+        self.ertefa = ertefa
+
+    def masahat_calc(self):
+        return self.arz * self.ertefa
+
+    def mohit_calc(self):
+        return 2 * (self.arz + self.ertefa)
+
+class Daire(Shekl):
+    def init(self, shoaa):
+        self.shoaa = shoaa
+        self.pi = 3.14159
+
+    def masahat_calc(self):
+        return self.pi * self.shoaa * self.shoaa
+
+    def mohit_calc(self):
+        return 2 * self.pi * self.shoaa
+
+shapes = [Mostatil(4, 6), Daire(3)]
+
+for shekl in shapes:
+    print("Masahat:", shekl.masahat_calc())
+    print("Mohit:", shekl.mohit_calc())
+    print("------")

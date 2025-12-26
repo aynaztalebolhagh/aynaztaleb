@@ -1,0 +1,4 @@
+name = input("Please enter your name: ")
+year = int(input("Please enter your year of birth: "))
+age = 1404 - year
+print("Hello, " + name + "! You are approximately " + str(age) + " years old.")

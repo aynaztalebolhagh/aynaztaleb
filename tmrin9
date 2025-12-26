@@ -1,0 +1,37 @@
+import tkinter as tk
+from tkinter import messagebox
+
+def mohasebe_sahm():
+    try:
+        kol_mablagh = float(entry_bill.get())
+        tedad_nafar = int(entry_people.get())
+
+        if tedad_nafar == 0:
+            raise ValueError("Tedad nafar nemitavanad 0 bashad")
+
+        sahm = kol_mablagh / tedad_nafar
+        messagebox.showinfo("Natije", f"Sahm har nafar: {sahm:.2f} toman")
+
+    except ValueError:
+        messagebox.showwarning("Error", "Lotfan adad sahih vared konid va tedad nafar > 0 bashad")
+
+root = tk.Tk()
+root.title("Calculator Dong")
+
+# Label va Entry baraye kol mablagh
+label_bill = tk.Label(root, text="Bill Total (Kol Mablagh):")
+label_bill.pack()
+entry_bill = tk.Entry(root)
+entry_bill.pack()
+
+# Label va Entry baraye tedad nafar
+label_people = tk.Label(root, text="Number of People (Tedad Nafar):")
+label_people.pack()
+entry_people = tk.Entry(root)
+entry_people.pack()
+
+# Dokme mohasebe
+btn_calc = tk.Button(root, text="Mohasebe Sahm Har Nafar", command=mohasebe_sahm)
+btn_calc.pack()
+
+root.mainloop()

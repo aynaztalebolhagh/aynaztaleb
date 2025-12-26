@@ -1,0 +1,19 @@
+def mohasebe_moadel(nomreha):
+    return sum(nomreha) / len(nomreha)
+
+tedad_dars = int(input("tedad darsha ra vared kon: "))
+nomreha = []
+
+for i in range(tedad_dars):
+    nomre = float(input("nomre dars " + str(i+1) + " ra vared kon: "))
+    nomreha.append(nomre)
+
+moadel = mohasebe_moadel(nomreha)
+print("moadel shoma:", moadel)
+
+if moadel >= 17:
+    print("Aali!")
+elif moadel >= 12:
+    print("Gozasht")
+else:
+    print("Mashroot")
